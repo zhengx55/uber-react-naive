@@ -2,12 +2,12 @@ import React from "react";
 import { Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const Chat = () => {
+const Singup = () => {
   return (
     <SafeAreaView>
-      <Text>Chat</Text>
+      <Text>Singup</Text>
     </SafeAreaView>
   );
 };
 
-export default Chat;
+export default Singup;
