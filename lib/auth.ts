@@ -28,6 +28,10 @@ export const tokenCache = {
   },
 };
 
+export const faceBookOAuth = async (startOAuthFlow: any) => {};
+
+export const twitterOAuth = async (startOAuthFlow: any) => {};
+
 export const googleOAuth = async (startOAuthFlow: any) => {
   try {
     const { createdSessionId, setActive, signUp } = await startOAuthFlow({

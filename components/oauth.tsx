@@ -1,5 +1,5 @@
 import { icons } from "@/constants";
-import { googleOAuth } from "@/lib/auth";
+import { faceBookOAuth, googleOAuth } from "@/lib/auth";
 import { useOAuth } from "@clerk/clerk-expo";
 import { router } from "expo-router";
 import React from "react";
@@ -16,6 +16,14 @@ const OAuth = () => {
       router.replace("/(root)/(tabs)/home");
     }
     Alert.alert(result.success ? "Success" : "Error", result.message);
+  };
+
+  const handleFacebookSignIn = async () => {
+    const result = await faceBookOAuth(startOAuthFlow);
+  };
+
+  const handleTwitterSignIn = async () => {
+    const result = await faceBookOAuth(startOAuthFlow);
   };
 
   return (
@@ -45,28 +53,28 @@ const OAuth = () => {
           className=" flex-1 rounded-lg h-14 shadow-none"
           IconLeft={() => (
             <Image
-              source={icons.google}
+              source={icons.facebook}
               resizeMode="contain"
               className="w-5 h-5 mx-2"
             />
           )}
           bgVariant="outline"
           textVariant="primary"
-          onPress={handleGoogleSignIn}
+          onPress={handleFacebookSignIn}
         />
         <CustomButton
           title=""
           className="flex-1 rounded-lg h-14 shadow-none"
           IconLeft={() => (
             <Image
-              source={icons.google}
+              source={icons.twitter}
               resizeMode="contain"
               className="w-5 h-5 mx-2"
             />
           )}
           bgVariant="outline"
           textVariant="primary"
-          onPress={handleGoogleSignIn}
+          onPress={handleTwitterSignIn}
         />
       </View>
     </View>
