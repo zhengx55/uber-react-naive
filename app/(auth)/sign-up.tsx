@@ -71,6 +71,7 @@ const Singup = () => {
         });
       }
     } catch (err: any) {
+      console.error(err.errors[0].longMessage);
       // See https://clerk.com/docs/custom-flows/error-handling
       // for more info on error handling
       setVerification({

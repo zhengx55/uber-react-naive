@@ -3,13 +3,13 @@ import InputField from "@/components/input";
 import OAuth from "@/components/oauth";
 import { icons, images } from "@/constants";
 import { useSignIn } from "@clerk/clerk-expo";
-import { Link, router } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useCallback, useState } from "react";
 import { Alert, Image, ScrollView, Text, View } from "react-native";
 
 const SignIn = () => {
   const { signIn, setActive, isLoaded } = useSignIn();
-
+  const router = useRouter();
   const [form, setForm] = useState({
     email: "",
     password: "",
