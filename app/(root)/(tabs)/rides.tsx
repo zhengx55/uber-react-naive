@@ -1,5 +1,12 @@
 import { useUser } from "@clerk/clerk-expo";
-import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  RefreshControl,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import RideCard from "@/components/ride-card";
@@ -13,12 +20,19 @@ const Rides = () => {
   const {
     data: recentRides,
     loading,
-    error,
+    refetch,
   } = useFetch<Ride[]>(`/(api)/ride/${user?.id}`);
-
   return (
     <SafeAreaView className="flex-1 bg-white">
       <FlatList
+        refreshControl={
+          <RefreshControl
+            refreshing={loading}
+            onRefresh={() => {
+              refetch();
+            }}
+          />
+        }
         data={recentRides}
         renderItem={({ item }) => <RideCard ride={item} />}
         keyExtractor={(item, index) => index.toString()}
