@@ -48,12 +48,10 @@ const Home = () => {
       }
 
       let location = await Location.getCurrentPositionAsync({});
-
       const address = await Location.reverseGeocodeAsync({
         latitude: location.coords?.latitude!,
         longitude: location.coords?.longitude!,
       });
-
       setUserLocation({
         latitude: location.coords?.latitude,
         longitude: location.coords?.longitude,
@@ -119,7 +117,6 @@ const Home = () => {
               containerStyle="bg-white shadow-md shadow-neutral-300"
               handlePress={handleDestinationPress}
             />
-
             <>
               <Text className="text-xl font-JakartaBold mt-5 mb-3">
                 Your current location
@@ -128,7 +125,6 @@ const Home = () => {
                 <Map />
               </View>
             </>
-
             <Text className="text-xl font-JakartaBold mt-5 mb-3">
               Recent Rides
             </Text>
